@@ -110,11 +110,13 @@ function Contact() {
         <Button
           variant="contained"
           onClick={() => {
-              if (name != "" && email != "" && msg != ""){
-                handleClick();
-              } else {
-                  alert('One or more fields have an error. Please check and try again');
-              }
+            if (name != "" && email != "" && msg != "") {
+              handleClick();
+            } else {
+              alert(
+                "One or more fields have an error. Please check and try again"
+              );
+            }
           }}
         >
           Submit Now

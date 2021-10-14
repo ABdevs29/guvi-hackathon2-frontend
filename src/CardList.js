@@ -6,20 +6,20 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
 
-
-function CardList({ products, handleAddToCart, handleDeleteFromCart}) {
+function CardList({ products, handleAddToCart, handleDeleteFromCart }) {
   const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
 
+  //Handle button click for showing success snackbar/toastr
   const handleClick = () => {
     setOpen(true);
   };
 
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
 
@@ -103,7 +103,7 @@ function CardList({ products, handleAddToCart, handleDeleteFromCart}) {
               })}
       </div>
       <Snackbar open={open} autoHideDuration={1000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
           Product added to Cart
         </Alert>
       </Snackbar>

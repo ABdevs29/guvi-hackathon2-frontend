@@ -18,7 +18,6 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
 
-
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
@@ -33,7 +32,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar({cart}) {
+export default function Navbar({ cart }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -96,53 +95,53 @@ export default function Navbar({cart}) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <Link to="/" style={{textDecoration:"none", color:"black"}}>
-      <MenuItem>
-        <IconButton size="large" aria-label="home page" color="inherit">
-          <HomeIcon />
-        </IconButton>
-        <p>Home</p>
-      </MenuItem>
+      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <MenuItem>
+          <IconButton size="large" aria-label="home page" color="inherit">
+            <HomeIcon />
+          </IconButton>
+          <p>Home</p>
+        </MenuItem>
       </Link>
-      <Link to="/store" style={{textDecoration:"none", color:"black"}}>
-      <MenuItem>
-        <IconButton size="large" aria-label="products store" color="inherit">
-          <StoreIcon />
-        </IconButton>
-        <p>Store</p>
-      </MenuItem>
+      <Link to="/store" style={{ textDecoration: "none", color: "black" }}>
+        <MenuItem>
+          <IconButton size="large" aria-label="products store" color="inherit">
+            <StoreIcon />
+          </IconButton>
+          <p>Store</p>
+        </MenuItem>
       </Link>
-      <Link to="/cart" style={{textDecoration:"none", color:"black"}}>
-      <MenuItem>
-        <IconButton size="large" aria-label="shopping Cart" color="inherit">
-          <Badge badgeContent={cart.length} color="error">
-            <ShoppingCartIcon />
-          </Badge>
-        </IconButton>
-        <p>Cart</p>
-      </MenuItem>
+      <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
+        <MenuItem>
+          <IconButton size="large" aria-label="shopping Cart" color="inherit">
+            <Badge badgeContent={cart.length} color="error">
+              <ShoppingCartIcon />
+            </Badge>
+          </IconButton>
+          <p>Cart</p>
+        </MenuItem>
       </Link>
-      <Link to="/contact" style={{textDecoration:"none", color:"black"}}>
-      <MenuItem>
-        <IconButton size="large" aria-label="contacts page" color="inherit">
-          <ContactPageIcon />
-        </IconButton>
-        <p>Contact Us</p>
-      </MenuItem>
+      <Link to="/contact" style={{ textDecoration: "none", color: "black" }}>
+        <MenuItem>
+          <IconButton size="large" aria-label="contacts page" color="inherit">
+            <ContactPageIcon />
+          </IconButton>
+          <p>Contact Us</p>
+        </MenuItem>
       </Link>
-      <Link to="/" style={{textDecoration:"none", color:"black"}}>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
+      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <MenuItem onClick={handleProfileMenuOpen}>
+          <IconButton
+            size="large"
+            aria-label="account of current user"
+            aria-controls="primary-search-account-menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+          <p>Profile</p>
+        </MenuItem>
       </Link>
     </Menu>
   );
@@ -229,4 +228,3 @@ export default function Navbar({cart}) {
     </Box>
   );
 }
-

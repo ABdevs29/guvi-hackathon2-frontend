@@ -1,8 +1,6 @@
 import React from "react";
 import LandingPageGrid from "./LandingPageGrid";
 
-
-
 function LandingPage() {
   return (
     <div className="landing-page">

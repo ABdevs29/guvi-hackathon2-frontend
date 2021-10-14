@@ -7,13 +7,18 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Typography from "@mui/material/Typography";
 
-function CartCard({ product, price, setPrice, index, handleDeleteFromCart, handleClick }) {
+function CartCard({
+  product,
+  price,
+  setPrice,
+  index,
+  handleDeleteFromCart,
+  handleClick,
+}) {
   const [count, setCount] = useState(0);
   // const [startTime, setStartTime] = useState("");
   // const [endTime, setEndTime] = useState("");
   // const [hours, setHours] = useState(1);
-
-
 
   return (
     <Card
@@ -70,7 +75,7 @@ function CartCard({ product, price, setPrice, index, handleDeleteFromCart, handl
             onClick={() => {
               if (count > 0) {
                 setCount(count - 1);
-                setPrice(price - (product.pricePerHour));
+                setPrice(price - product.pricePerHour);
                 // setIsAdded(false);
               }
             }}
@@ -82,22 +87,22 @@ function CartCard({ product, price, setPrice, index, handleDeleteFromCart, handl
             onClick={() => {
               if (count < 10) {
                 setCount(count + 1);
-                setPrice(price + (product.pricePerHour));
+                setPrice(price + product.pricePerHour);
               }
             }}
           >
             ﹢
           </Button>
-          <Button variant="contained"
-          onClick={() => {
-            handleDeleteFromCart(index);
-            handleClick();
-          }}
-        >
-          Delete Item
-        </Button>
+          <Button
+            variant="contained"
+            onClick={() => {
+              handleDeleteFromCart(index);
+              handleClick();
+            }}
+          >
+            Delete Item
+          </Button>
         </ButtonGroup>
-
       </CardActions>
     </Card>
   );

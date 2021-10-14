@@ -8,10 +8,11 @@ import {
 import React from "react";
 import { useHistory } from "react-router";
 
-function CartCheckout({price}) {
+function CartCheckout({ price }) {
   const history = useHistory();
 
-  function routeChange () {
+  // Route change after checkout button click
+  function routeChange() {
     history.push("/checkout");
   }
 
@@ -23,11 +24,7 @@ function CartCheckout({price}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button
-          size="large"
-          variant="contained"
-          onClick={() => routeChange()}
-        >
+        <Button size="large" variant="contained" onClick={() => routeChange()}>
           Checkout & Pay
         </Button>
       </CardActions>
