@@ -27,7 +27,11 @@ function LoginForm({ setToken }) {
         setUsername("");
         setPassword("");
         setDisplay("");
-        history.push("/addproduct");
+        if (json.message != "Invalid login credentials") {
+          history.push("/addproduct");
+        } else {
+        setDisplay("Login failed. Please check your credentials");
+        }
       })
       .catch((err) => {
         setDisplay("Login failed. Please check your credentials");

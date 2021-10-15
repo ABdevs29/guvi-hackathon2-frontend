@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
-import CameraIcon from '@mui/icons-material/Camera';
+import CameraIcon from "@mui/icons-material/Camera";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StoreIcon from "@mui/icons-material/Store";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -32,7 +32,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar({ cart }) {
+export default function Navbar({ cart, setSearch }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -74,10 +74,10 @@ export default function Navbar({ cart }) {
       onClose={handleMenuClose}
     >
       <Link to="/signup" style={{ textDecoration: "none", color: "black" }}>
-      <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem>
       </Link>
       <Link to="/login" style={{ textDecoration: "none", color: "black" }}>
-      <MenuItem onClick={handleMenuClose}>Login</MenuItem>
+        <MenuItem onClick={handleMenuClose}>Login</MenuItem>
       </Link>
     </Menu>
   );
@@ -109,7 +109,12 @@ export default function Navbar({ cart }) {
       </Link>
       <Link to="/store" style={{ textDecoration: "none", color: "black" }}>
         <MenuItem>
-          <IconButton size="large" aria-label="products store" color="inherit">
+          <IconButton
+            size="large"
+            aria-label="products store"
+            color="inherit"
+            onClick={() => setSearch("")}
+          >
             <StoreIcon />
           </IconButton>
           <p>Store</p>
@@ -133,18 +138,18 @@ export default function Navbar({ cart }) {
           <p>Contact Us</p>
         </MenuItem>
       </Link>
-        <MenuItem onClick={handleProfileMenuOpen}>
-          <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="primary-search-account-menu"
-            aria-haspopup="true"
-            color="inherit"
-          >
-            <AccountCircle />
-          </IconButton>
-          <p>Profile</p>
-        </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        <p>Profile</p>
+      </MenuItem>
     </Menu>
   );
 
@@ -152,7 +157,9 @@ export default function Navbar({ cart }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "#2E3B55" }}>
         <Toolbar>
-          <CameraIcon size="large" sx={{ mr: 1, fontSize: 35 }} />
+          <Link to="/" style={{ textDecoration: "none", color: "#e0d5f4" }}>
+            <CameraIcon size="large" sx={{ mr: 1, fontSize: 35 }} />
+          </Link>
           <Typography
             variant="h6"
             noWrap
@@ -168,16 +175,17 @@ export default function Navbar({ cart }) {
                 <HomeIcon />
               </IconButton>
             </Link>
-            <Link to="/store">
+            <Link to="/store" style={{ textDecoration: "none" }}>
               <IconButton
                 size="large"
                 aria-label="shopping cart"
                 color="warning"
+                onClick={() => setSearch("")}
               >
                 <StoreIcon />
               </IconButton>
             </Link>
-            <Link to="/cart">
+            <Link to="/cart" style={{ textDecoration: "none" }}>
               <IconButton
                 size="large"
                 aria-label="shopping cart"
@@ -188,7 +196,7 @@ export default function Navbar({ cart }) {
                 </Badge>
               </IconButton>
             </Link>
-            <Link to="/contact">
+            <Link to="/contact" style={{ textDecoration: "none" }}>
               <IconButton
                 size="large"
                 aria-label="contacts page"
@@ -197,17 +205,17 @@ export default function Navbar({ cart }) {
                 <ContactPageIcon />
               </IconButton>
             </Link>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="warning"
-              >
-                <AccountCircle />
-              </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="warning"
+            >
+              <AccountCircle />
+            </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

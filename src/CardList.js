@@ -9,8 +9,13 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
-function CardList({ products, handleAddToCart, handleDeleteFromCart }) {
-  const [search, setSearch] = useState("");
+function CardList({
+  products,
+  handleAddToCart,
+  handleDeleteFromCart,
+  search,
+  setSearch,
+}) {
   const [open, setOpen] = useState(false);
 
   //Handle button click for showing success snackbar/toastr
@@ -57,6 +62,7 @@ function CardList({ products, handleAddToCart, handleDeleteFromCart }) {
           color="secondary"
           aria-label="outlined secondary button group"
         >
+          <Button onClick={() => setSearch("")}>All</Button>
           <Button onClick={() => setSearch("camera")}>Camera</Button>
           <Button onClick={() => setSearch("lens")}>Lens</Button>
           <Button onClick={() => setSearch("accessory")}>Accessories</Button>

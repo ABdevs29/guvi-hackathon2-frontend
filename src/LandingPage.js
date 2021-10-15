@@ -1,7 +1,7 @@
 import React from "react";
 import LandingPageGrid from "./LandingPageGrid";
 
-function LandingPage() {
+function LandingPage({search, setSearch}) {
   return (
     <div className="landing-page">
       <div className="landing-banner">
@@ -12,7 +12,7 @@ function LandingPage() {
       </div>
       <div>
         <p className="services-para">Services offered</p>
-        <LandingPageGrid />
+        <LandingPageGrid search={search} setSearch={setSearch}/>
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [price, setPrice] = useState(0);
   const [token, setToken] = useState("");
+  const [search, setSearch] = useState("");
 
   // Fetch products from Mongo DB using Backend
   useEffect(() => {
@@ -42,10 +43,10 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar cart={cart} />
+      <Navbar cart={cart} setSearch={setSearch} />
       <Switch>
         <Route exact path="/">
-          <LandingPage />
+          <LandingPage search={search} setSearch={setSearch} />
         </Route>
         <Route exact path="/store">
           <CardList
@@ -53,6 +54,8 @@ function App() {
             cart={cart}
             handleAddToCart={handleAddToCart}
             handleDeleteFromCart={handleDeleteFromCart}
+            search={search}
+            setSearch={setSearch}
           />
         </Route>
         <Route exact path="/cart">
@@ -70,10 +73,10 @@ function App() {
           <h1>Payment done!</h1>
         </Route>
         <Route exact path="/signup">
-          <SignUpForm/>
+          <SignUpForm />
         </Route>
         <Route exact path="/login">
-          <LoginForm setToken={setToken}/>
+          <LoginForm setToken={setToken} />
         </Route>
         <Route exact path="/addproduct">
           <AddProduct token={token} setProducts={setProducts} />
