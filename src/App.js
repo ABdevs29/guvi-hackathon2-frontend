@@ -6,11 +6,15 @@ import { Switch, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Cart from "./Cart";
 import Contact from "./Contact";
+import SignUpForm from "./SignUpForm";
+import LoginForm from "./LoginForm";
+import AddProduct from "./AddProduct";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [price, setPrice] = useState(0);
+  const [token, setToken] = useState("");
 
   // Fetch products from Mongo DB using Backend
   useEffect(() => {
@@ -64,6 +68,15 @@ function App() {
         </Route>
         <Route exact path="/checkout">
           <h1>Payment done!</h1>
+        </Route>
+        <Route exact path="/signup">
+          <SignUpForm/>
+        </Route>
+        <Route exact path="/login">
+          <LoginForm setToken={setToken}/>
+        </Route>
+        <Route exact path="/addproduct">
+          <AddProduct token={token} setProducts={setProducts} />
         </Route>
       </Switch>
     </div>

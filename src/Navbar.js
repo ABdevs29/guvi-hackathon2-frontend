@@ -11,7 +11,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
-import CameraIndoorIcon from "@mui/icons-material/CameraIndoor";
+import CameraIcon from '@mui/icons-material/Camera';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StoreIcon from "@mui/icons-material/Store";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -73,8 +73,12 @@ export default function Navbar({ cart }) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Link to="/signup" style={{ textDecoration: "none", color: "black" }}>
+      <MenuItem onClick={handleMenuClose}>Sign Up</MenuItem>
+      </Link>
+      <Link to="/login" style={{ textDecoration: "none", color: "black" }}>
+      <MenuItem onClick={handleMenuClose}>Login</MenuItem>
+      </Link>
     </Menu>
   );
 
@@ -129,7 +133,6 @@ export default function Navbar({ cart }) {
           <p>Contact Us</p>
         </MenuItem>
       </Link>
-      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
         <MenuItem onClick={handleProfileMenuOpen}>
           <IconButton
             size="large"
@@ -142,7 +145,6 @@ export default function Navbar({ cart }) {
           </IconButton>
           <p>Profile</p>
         </MenuItem>
-      </Link>
     </Menu>
   );
 
@@ -150,14 +152,14 @@ export default function Navbar({ cart }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "#2E3B55" }}>
         <Toolbar>
-          <CameraIndoorIcon size="large" sx={{ mr: 1, fontSize: 35 }} />
+          <CameraIcon size="large" sx={{ mr: 1, fontSize: 35 }} />
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            Camera Equipment Rental
+            SNAPSHOT RENTALS
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
@@ -195,7 +197,6 @@ export default function Navbar({ cart }) {
                 <ContactPageIcon />
               </IconButton>
             </Link>
-            <Link to="/profile">
               <IconButton
                 size="large"
                 edge="end"
@@ -207,7 +208,6 @@ export default function Navbar({ cart }) {
               >
                 <AccountCircle />
               </IconButton>
-            </Link>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
